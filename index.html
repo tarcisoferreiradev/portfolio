@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarciso Ferreira - Portfólio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-black page-transition">
+
+    <div id="preloader" class="fixed inset-0 bg-black z-50 flex justify-center items-center">
+        <div class="preloader-container">
+            <div id="preloader-title" class="preloader-title text-5xl sm:text-6xl font-black tracking-tighter">Tarciso Ferreira</div>
+            <div id="preloader-underline" class="preloader-underline"></div>
+        </div>
+    </div>
+
+    <canvas id="aurora-canvas"></canvas>
+    <canvas id="fluid-canvas"></canvas>
+
+    <div id="main-content">
+        <div class="content-wrapper pb-20">
+            <div id="menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+            <header class="page-element px-4 sm:px-8 py-4 fixed top-0 left-0 w-full z-50">
+                <nav class="flex justify-between items-center">
+                    <a href="#" id="nav-brand" class="text-xl sm:text-2xl font-bold tracking-tighter z-50 cursor-pointer">Tarciso Ferreira</a>
+                    
+                    <div id="nav-right-container">
+                        <button id="hamburger-btn" class="md:hidden z-50 text-white w-8 h-8 flex flex-col justify-center items-center gap-[5px]">
+                            <span class="block w-6 h-0.5 bg-white"></span>
+                            <span class="block w-6 h-0.5 bg-white"></span>
+                            <span class="block w-6 h-0.5 bg-white"></span>
+                        </button>
+                                                   
+                       <div id="desktop-nav-links" class="hidden md:flex items-center space-x-3 sm:space-x-6">
+                           <a href="#sobre" class="nav-link-scroll text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Sobre</a>
+                           <a href="#projetos-destaque" class="nav-link-scroll text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Projetos</a>
+                           <a href="#certificados" class="nav-link-scroll text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Certificados</a>
+                       </div>    
+                    </div>
+                </nav>
+            </header>
+            
+            <div id="main-nav" class="fixed top-0 right-0 h-full w-full max-w-xs bg-slate-900/90 backdrop-blur-xl z-40 transform translate-x-full">
+                <div class="flex flex-col h-full w-full pt-24 px-8 space-y-2">
+                    <span class="px-4 pb-4 text-sm font-semibold text-gray-400 tracking-wider">MENU</span>
+                    <a href="#sobre" class="mobile-nav-link nav-link-scroll flex items-center gap-4 text-xl text-gray-200 hover:text-white p-4 rounded-lg hover:bg-white/10 transition-all duration-200"><span>Sobre</span></a>
+                    <a href="#projetos-destaque" class="mobile-nav-link nav-link-scroll flex items-center gap-4 text-xl text-gray-200 hover:text-white p-4 rounded-lg hover:bg-white/10 transition-all duration-200"><span>Projetos</span></a>
+                    <a href="#certificados" class="mobile-nav-link nav-link-scroll flex items-center gap-4 text-xl text-gray-200 hover:text-white p-4 rounded-lg hover:bg-white/10 transition-all duration-200"><span>Certificados</span></a>
+                </div>
+            </div>
+
+            <main id="page-content">
+                
+                <div id="home-view" class="view-section transition-opacity duration-500">
+                    
+                    <section id="home" class="flex flex-col justify-center px-4 sm:px-8 pt-32 pb-16 md:min-h-screen md:pt-10 md:pb-0">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                            <div class="text-center md:text-left">
+                                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none">
+                                    TRANSFORMANDO IDEIAS EM REALIDADE DIGITAL.
+                                </h1>
+                                <div class="mt-12 flex justify-center md:justify-start">
+                                    <a href="#sobre" class="scroll-arrow"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></a>
+                                </div>
+                            </div>
+                            <div class="space-y-6 text-center md:text-left">
+                                 <div class="p-6 rounded-lg border border-blue-500/30 card-base">
+                                    <h2 class="text-xl sm:text-2xl font-bold">Olá! Eu sou Tarciso.</h2>
+                                    <p class="mt-2 text-gray-300">Um desenvolvedor e designer apaixonado por criar experiências web interativas e memoráveis.</p>
+                                    <a href="#projetos-destaque" class="nav-link-scroll inline-block mt-6 font-bold group text-white">Veja os destaques <span class="inline-block transition-transform group-hover:translate-x-2">→</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="sobre" class="py-16 sm:py-24 flex items-center justify-center reveal px-4 sm:px-8">
+                        <div class="max-w-3xl text-center">
+                            <h2 class="text-3xl sm:text-4xl font-bold mb-4"><span class="text-gradient">Sobre Mim</span></h2>
+                            <p class="text-base sm:text-lg text-gray-300">Como um desenvolvedor focado em front-end, minha missão é transformar ideias complexas em realidade digital. Utilizo tecnologias como React, TypeScript e JavaScript moderno para construir interfaces interativas e memoráveis.</p>
+                        </div>
+                    </section>
+                    
+                    <section id="projetos-destaque" class="py-16 sm:py-24 w-full reveal">
+                        <div class="max-w-7xl mx-auto text-center px-4 sm:px-8">
+                            <h2 class="text-3xl sm:text-4xl font-bold mb-4"><span class="text-gradient">Projetos em Destaque</span></h2>
+                            <p class="text-gray-400 mb-12">Uma seleção dos meus principais trabalhos.</p>
+                            <div id="gallery-container-featured" class="card-grid mb-12"></div>
+                            <button id="view-all-projects-btn" class="gradient-btn font-bold text-lg px-8 py-3 transform transition hover:scale-105">Ver Todos os Projetos</button>
+                        </div>
+                    </section>
+
+                    <section id="certificados" class="py-16 sm:py-24 w-full reveal">
+                        <div class="max-w-7xl mx-auto text-center px-4 sm:px-8">
+                            <h2 class="text-3xl sm:text-4xl font-bold mb-12"><span class="text-gradient">Certificados em Destaque</span></h2>
+                            <div id="gallery-container-certs-featured" class="card-grid mb-12"></div>
+                            <button id="view-all-certs-btn" class="gradient-btn font-bold text-lg px-8 py-3 transform transition hover:scale-105">Ver Todos os Certificados</button>
+                        </div>
+                    </section>
+
+                </div>
+
+                <div id="projects-view" class="view-section hidden opacity-0 transition-opacity duration-500 min-h-screen absolute inset-0 z-50 overflow-y-auto">
+                    
+                    <div id="gallery-header" class="fixed top-0 left-0 w-full z-[60] px-4 sm:px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-4 transition-all duration-300 border-b border-white/5 bg-black/60 backdrop-blur-xl">
+                        
+                        <button id="back-to-home-btn" class="flex items-center gap-2 text-white/80 hover:text-white transition-all group backdrop-blur-md bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:border-blue-500/50 w-full md:w-auto justify-center md:justify-start cursor-pointer">
+                            <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                            <span class="font-bold tracking-wide">Voltar</span>
+                        </button>
+
+                        <div class="relative w-full max-w-md mx-auto">
+                            <input type="text" id="project-search-input" placeholder="Pesquisar projetos..." class="w-full bg-white/5 border border-white/10 rounded-full py-2 px-10 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all">
+                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+
+                        <div class="relative w-full md:w-auto flex justify-center md:justify-end">
+                            <button id="filter-toggle-btn" class="flex items-center gap-2 text-white hover:text-blue-400 transition-colors backdrop-blur-md bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:border-blue-500/50 w-full md:w-auto justify-center cursor-pointer">
+                                <span class="font-semibold">Categorias</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                            </button>
+
+                            <div id="category-navigation-menu" class="hidden absolute right-0 top-full mt-4 w-64 bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-2 transform origin-top-right transition-all duration-300 scale-95 opacity-0 z-[70]">
+                                <div class="flex flex-col gap-1" id="nav-menu-list"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="max-w-7xl mx-auto px-4 sm:px-8 pt-48 md:pt-32 pb-20">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl sm:text-6xl font-black tracking-tighter mb-4"><span class="text-gradient">Galeria Completa</span></h2>
+                            <p class="text-gray-400 text-lg">Explore todos os projetos organizados por categoria.</p>
+                        </div>
+                        
+                        <div id="full-portfolio-container" class="space-y-24"></div>
+                    </div>
+                </div>
+
+                <div id="certificates-view" class="view-section hidden opacity-0 transition-opacity duration-500 min-h-screen absolute inset-0 z-50 overflow-y-auto">
+                    
+                    <div id="gallery-header-certs" class="fixed top-0 left-0 w-full z-[60] px-4 sm:px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-4 transition-all duration-300 border-b border-white/5 bg-black/60 backdrop-blur-xl">
+                        
+                        <button id="back-to-home-certs-btn" class="flex items-center gap-2 text-white/80 hover:text-white transition-all group backdrop-blur-md bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:border-green-500/50 w-full md:w-auto justify-center md:justify-start cursor-pointer">
+                            <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                            <span class="font-bold tracking-wide">Voltar</span>
+                        </button>
+
+                        <div class="relative w-full max-w-md mx-auto">
+                            <input type="text" id="certs-search-input" placeholder="Pesquisar certificados..." class="w-full bg-white/5 border border-white/10 rounded-full py-2 px-10 text-white placeholder-gray-400 focus:outline-none focus:border-green-500/50 focus:bg-white/10 transition-all">
+                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="max-w-7xl mx-auto px-4 sm:px-8 pt-48 md:pt-32 pb-20">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl sm:text-6xl font-black tracking-tighter mb-4"><span class="text-gradient">Meus Certificados</span></h2>
+                            <p class="text-gray-400 text-lg">Reconhecimento e aprendizado contínuo.</p>
+                        </div>
+                        
+                        <div id="full-certificates-container" class="card-grid"></div>
+                    </div>
+                </div>
+
+                <div id="special-projects-view" class="view-section hidden opacity-0 transition-opacity duration-500 pt-32 min-h-screen absolute inset-0 z-[55] overflow-y-auto">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+                        <div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
+                            <div class="text-center md:text-left">
+                                <button id="back-to-projects-btn" class="flex items-center gap-2 text-purple-400 hover:text-white transition-colors mb-4 group px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 cursor-pointer">
+                                    <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                                    Voltar para Categorias
+                                </button>
+                                <h2 class="text-4xl sm:text-5xl font-black tracking-tighter text-purple-400 drop-shadow-lg">Projetos Especiais</h2>
+                            </div>
+                            
+                            <div class="flex flex-wrap justify-center gap-2 md:gap-4" id="special-filters">
+                                <button class="filter-btn active" data-subfilter="all">Todos</button>
+                                <button class="filter-btn" data-subfilter="natal">Natalino</button>
+                                <button class="filter-btn" data-subfilter="aniversario">Aniversário</button>
+                                <button class="filter-btn" data-subfilter="pascoa">Páscoa</button>
+                                <button class="filter-btn" data-subfilter="romantico">Romântico</button>
+                            </div>
+                        </div>
+
+                        <div id="gallery-container-special" class="card-grid pb-20"></div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/fluid-cursor.js" defer></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
