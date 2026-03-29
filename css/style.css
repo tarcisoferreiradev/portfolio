@@ -61,8 +61,11 @@ body.menu-open { overflow: hidden; }
 /* --- HEADER PRINCIPAL --- */
 header { transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease; }
 .header-scrolled {
-    background-color: rgba(18, 18, 18, 0.9);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(18, 18, 18, 0.7); /* Mais transparente */
+    backdrop-filter: blur(12px); /* Efeito vidro */
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+    transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
 }
 
 /* --- HEADER DA GALERIA (FIXO E SÓLIDO) --- */
