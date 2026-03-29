@@ -624,3 +624,17 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFeaturedCertificates(); 
     initSPA();
 });
+
+// --- HEADER TRANSPARENTE AO ROLAR ---
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('header');
+    function handleHeaderScroll() {
+        if (window.scrollY > 30) {
+            header.classList.add('header-scrolled');
+        } else {
+            header.classList.remove('header-scrolled');
+        }
+    }
+    window.addEventListener('scroll', handleHeaderScroll);
+    handleHeaderScroll(); // Garante o estado correto ao carregar
+});
