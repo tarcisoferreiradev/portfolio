@@ -27,6 +27,7 @@
 html {
     scrollbar-width: thin;
     scrollbar-color: #3b82f6 transparent;
+    scroll-behavior: smooth;
 }
 
 /* --- RESET E BASE --- */
@@ -59,20 +60,32 @@ body.menu-open { overflow: hidden; }
 .content-wrapper { position: relative; z-index: 2; background-color: transparent; }
 
 /* --- HEADER PRINCIPAL --- */
-header { transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease; }
+header {
+    background-color: rgba(2, 6, 23, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
 .header-scrolled {
-    background: rgba(18, 18, 18, 0.7); /* Mais transparente */
+    background-color: rgba(18, 18, 18, 0.7); /* Mais transparente */
     backdrop-filter: blur(12px); /* Efeito vidro */
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
-    transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
+    transition: background-color 0.4s, backdrop-filter 0.4s, border-color 0.4s, box-shadow 0.4s;
 }
 
 /* --- HEADER DA GALERIA (FIXO E SÓLIDO) --- */
 #gallery-header, #gallery-header-certs {
-    background-color: rgba(15, 23, 42, 0.95);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 70;
+    background-color: rgba(2, 6, 23, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
 /* Menu Dropdown */
