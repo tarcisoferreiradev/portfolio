@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Aplicativo — Tarciso Ferreira</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            color: #e2e8f0;
+            background:
+                radial-gradient(
+                    ellipse at top left,
+                    rgba(37, 99, 235, 0.2),
+                    transparent 55%
+                ),
+                radial-gradient(
+                    ellipse at bottom right,
+                    rgba(124, 58, 237, 0.16),
+                    transparent 55%
+                ),
+                #020617;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page {
+            width: min(100% - 40px, 1040px);
+            margin: 0 auto;
+            padding: 32px 0 64px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 44px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            color: #fff;
+        }
+
+        .app-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 280px;
+            align-items: start;
+            gap: 72px;
+            margin-top: 56px;
+        }
+
+        .eyebrow {
+            margin: 0 0 16px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #6ee7b7;
+        }
+
+        h1 {
+            margin: 0 0 20px;
+            font-size: clamp(2.3rem, 6vw, 4.4rem);
+            line-height: 1.05;
+            letter-spacing: -0.05em;
+            overflow-wrap: anywhere;
+        }
+
+        .description {
+            margin: 0;
+            max-width: 580px;
+            color: #94a3b8;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .details-panel {
+            margin-top: 32px;
+            padding: 24px;
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 1.1rem;
+        }
+
+        .details-panel p {
+            margin: 0;
+            color: #94a3b8;
+            line-height: 1.75;
+        }
+
+        .site-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            margin-top: 24px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            background: rgba(16, 185, 129, 0.1);
+            color: #6ee7b7;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .site-link:hover {
+            background: rgba(16, 185, 129, 0.2);
+        }
+
+        a:focus-visible {
+            outline: 2px solid #6ee7b7;
+            outline-offset: 5px;
+        }
+
+        .preview {
+            margin: 0;
+            width: 100%;
+        }
+
+        .preview-frame {
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            background: #0f172a;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .preview img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .preview-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            aspect-ratio: 9 / 19.5;
+            padding: 24px;
+            text-align: center;
+            color: #94a3b8;
+            background: linear-gradient(160deg, #172238, #020617);
+        }
+
+        .preview-placeholder svg {
+            width: 48px;
+            height: 48px;
+            color: #6ee7b7;
+        }
+
+        figcaption {
+            margin-top: 14px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 767px) {
+            .page {
+                width: min(100% - 32px, 540px);
+                padding-top: 20px;
+            }
+
+            .app-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                margin-top: 32px;
+            }
+
+            .description {
+                font-size: 0.95rem;
+            }
+
+            .details-panel {
+                padding: 20px;
+                margin-top: 24px;
+            }
+
+            .preview {
+                max-width: 230px;
+                justify-self: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <a class="back-link" href="index.html#aplicativos">
+            <span aria-hidden="true">←</span>
+            Voltar aos aplicativos
+        </a>
+
+        <div class="app-layout" id="app-layout" hidden>
+            <section aria-labelledby="app-title">
+                <p class="eyebrow">Aplicativo • Tarciso Ferreira</p>
+
+                <h1 id="app-title"></h1>
+
+                <p class="description" id="app-description"></p>
+
+                <div class="details-panel">
+                    <h2>Sobre o aplicativo</h2>
+                    <p id="app-about"></p>
+                </div>
+
+                <a
+                    id="app-site"
+                    class="site-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    hidden
+                >
+                    Conhecer o site
+                    <span aria-hidden="true">&nbsp;↗</span>
+                </a>
+            </section>
+
+            <figure class="preview">
+                <div class="preview-frame">
+                    <img id="app-image" alt="" hidden>
+
+                    <div
+                        id="app-placeholder"
+                        class="preview-placeholder"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="6"
+                                y="2"
+                                width="12"
+                                height="20"
+                                rx="3"
+                            />
+                            <path d="M10 5h4M11 18h2"/>
+                        </svg>
+
+                        <span>Prévia em breve</span>
+                    </div>
+                </div>
+
+                <figcaption id="preview-caption">
+                    Prévia da interface
+                </figcaption>
+            </figure>
+        </div>
+
+        <section id="not-found" hidden>
+            <h1>Aplicativo não encontrado</h1>
+            <p>Volte ao portfólio e selecione um aplicativo.</p>
+        </section>
+
+        <noscript>
+            <p>
+                Ative o JavaScript para visualizar os detalhes
+                do aplicativo.
+            </p>
+        </noscript>
+    </main>
+
+    <script>
+        const apps = {
+            veloce: {
+                title: "Veloce",
+                description:
+                    "Aplicativo de caminhada e corrida para acompanhar suas atividades físicas.",
+                about:
+                    "Um projeto voltado à prática de caminhada e corrida, com foco no acompanhamento das atividades e em uma experiência simples no celular.",
+                image: "img/veloce.jpeg",
+                website: ""
+            },
+
+            "alimentando-fases": {
+                title: "Alimentando Fases",
+                description:
+                    "A versão em aplicativo do projeto Alimentando Fases, também presente no portfólio como site.",
+                about:
+                    "O aplicativo faz parte do ecossistema Alimentando Fases, um projeto de saúde e troca de experiências. Sua versão web reúne uma rede social com perfis, publicações, comentários e chat privado.",
+                // Adicione o caminho do print quando estiver disponível.
+                image: "",
+                website: "https://alimentandofases.com/"
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const appId = params.get("app");
+
+        const app = Object.prototype.hasOwnProperty.call(apps, appId)
+            ? apps[appId]
+            : null;
+
+        if (!app) {
+            document.title = "Aplicativo não encontrado";
+            document.getElementById("not-found").hidden = false;
+        } else {
+            document.title =
+                `${app.title} — Tarciso Ferreira`;
+
+            document.getElementById("app-title").textContent =
+                app.title;
+
+            document.getElementById("app-description").textContent =
+                app.description;
+
+            document.getElementById("app-about").textContent =
+                app.about;
+
+            const image = document.getElementById("app-image");
+            const placeholder =
+                document.getElementById("app-placeholder");
+            const caption =
+                document.getElementById("preview-caption");
+
+            caption.textContent = app.image
+                ? `Tela do ${app.title}`
+                : `Prévia do ${app.title} em breve`;
+
+            if (app.image) {
+                image.alt = `Tela do aplicativo ${app.title}`;
+
+                image.addEventListener("load", () => {
+                    image.hidden = false;
+                    placeholder.hidden = true;
+                });
+
+                image.addEventListener("error", () => {
+                    image.hidden = true;
+                    placeholder.hidden = false;
+                    caption.textContent = "Prévia indisponível";
+                });
+
+                image.src = app.image;
+            }
+
+            if (app.website) {
+                const siteLink =
+                    document.getElementById("app-site");
+
+                siteLink.href = app.website;
+                siteLink.hidden = false;
+            }
+
+            document.getElementById("app-layout").hidden = false;
+        }
+    </script>
+</body>
+</html>

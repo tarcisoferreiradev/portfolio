@@ -11,38 +11,32 @@
 }
 
 *::-webkit-scrollbar-track {
-    background-color: transparent !important;
     background: transparent !important;
     border: none !important;
     margin: 4px 0;
 }
 
 *::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #3b82f6 0%, #7c3aed 100%);
+    background: linear-gradient(180deg, #3b82f6, #7c3aed);
     border-radius: 20px;
     border: 2px solid transparent;
     background-clip: content-box;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #60a5fa 0%, #8b5cf6 100%);
+    background: linear-gradient(180deg, #60a5fa, #8b5cf6);
     border: 2px solid transparent;
     background-clip: content-box;
-}
-
-html {
-    scrollbar-width: thin;
-    scrollbar-color: #3b82f6 transparent;
-    scroll-behavior: smooth;
 }
 
 /* ==================================================
    2. BASE
    ================================================== */
 
-.page-transition {
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 transparent;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -55,6 +49,11 @@ body {
 
 body.menu-open {
     overflow: hidden;
+}
+
+.page-transition {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
 }
 
 .hidden {
@@ -114,12 +113,7 @@ header {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
-    transition:
-        background-color 0.4s,
-        backdrop-filter 0.4s,
-        border-color 0.4s,
-        box-shadow 0.4s;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
 }
 
 #gallery-header,
@@ -276,7 +270,9 @@ header {
     background-color: #2563eb;
     transform: scaleX(0);
     transform-origin: left;
-    box-shadow: 0 0 10px #2563eb, 0 0 20px #2563eb;
+    box-shadow:
+        0 0 10px #2563eb,
+        0 0 20px #2563eb;
 }
 
 /* ==================================================
@@ -285,7 +281,10 @@ header {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(min(100%, 300px), 1fr)
+    );
     gap: 2rem;
     width: 100%;
 }
@@ -295,13 +294,17 @@ header {
     display: flex;
     flex-direction: column;
     width: 100%;
+    min-width: 0;
     min-height: 480px;
-    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    background: linear-gradient(180deg, #1e293b, #0f172a);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     color: white;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition:
+        transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
 }
 
 .card-grid article:hover {
@@ -339,13 +342,14 @@ header {
 }
 
 .card-grid h2 {
+    font-family: "Inter", sans-serif;
     font-size: 1.35rem;
     font-weight: 700;
-    font-family: "Inter", sans-serif;
     margin-bottom: 0.75rem;
     line-height: 1.2;
     background: linear-gradient(90deg, #fff, #94a3b8);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -437,6 +441,13 @@ header {
         0 0 25px rgba(234, 179, 8, 0.3);
 }
 
+.card-glow-ecommerce:hover {
+    border-color: rgba(79, 70, 229, 0.8);
+    box-shadow:
+        0 20px 40px -10px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(79, 70, 229, 0.3);
+}
+
 .card-glow-special:hover {
     border-color: rgba(147, 51, 234, 0.8);
     box-shadow:
@@ -473,7 +484,7 @@ header {
 }
 
 /* ==================================================
-   12. ETIQUETAS DE CATEGORIA
+   12. ETIQUETAS DOS PROJETOS
    ================================================== */
 
 .category-badge {
@@ -507,16 +518,17 @@ header {
     border-color: rgba(79, 70, 229, 0.3);
 }
 
-.badge-special {
-    background-color: rgba(147, 51, 234, 0.2);
-    color: #c084fc;
-    border-color: rgba(147, 51, 234, 0.3);
-}
-
+.badge-landingpage,
 .badge-systems {
     background-color: rgba(6, 182, 212, 0.2);
     color: #22d3ee;
     border-color: rgba(6, 182, 212, 0.3);
+}
+
+.badge-special {
+    background-color: rgba(147, 51, 234, 0.2);
+    color: #c084fc;
+    border-color: rgba(147, 51, 234, 0.3);
 }
 
 .badge-infra {
@@ -540,11 +552,11 @@ header {
 .badge-default {
     background-color: rgba(71, 85, 105, 0.2);
     color: #94a3b8;
-    border: 1px solid rgba(71, 85, 105, 0.3);
+    border-color: rgba(71, 85, 105, 0.3);
 }
 
 /* ==================================================
-   13. TÍTULOS E TEXTOS COM GRADIENTE
+   13. TÍTULOS E GRADIENTES
    ================================================== */
 
 .category-section-title {
@@ -578,6 +590,7 @@ header {
     );
     background-size: 300% 100%;
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
     animation: gradient 3s linear infinite;
 }
@@ -661,14 +674,14 @@ header {
 }
 
 /* ==================================================
-   17. APLICATIVOS EM DESTAQUE
+   17. CARDS DOS APLICATIVOS
    ================================================== */
 
-/* No computador, os cards ficam lado a lado. */
+/* Cards menores, lado a lado no desktop. */
 .apps-grid {
     grid-template-columns: repeat(
         auto-fit,
-        minmax(min(100%, 280px), 340px)
+        minmax(min(100%, 220px), 270px)
     );
     justify-content: center;
 }
@@ -676,11 +689,12 @@ header {
 .card-grid .app-card {
     padding: 0;
     min-width: 0;
+    min-height: 0;
     border-radius: 20px;
     overflow: hidden;
 }
 
-/* Print em toda a largura, sem faixa superior. */
+/* Imagem ocupa toda a largura e começa no topo. */
 .card-grid .app-card .card-image-container {
     width: 100%;
     max-width: none;
@@ -694,7 +708,7 @@ header {
     background: #020617;
 }
 
-/* Preserva a proporção original do print. */
+/* Altura proporcional: print inteiro e sem distorção. */
 .card-grid .app-card .card-image-container img {
     display: block;
     width: 100%;
@@ -703,17 +717,22 @@ header {
     object-position: center;
 }
 
-/* Evita zoom e cortes no print ao passar o mouse. */
 .card-grid .app-card:hover .card-image-container img {
     transform: none;
 }
 
-.card-grid .app-card .card-footer {
-    flex-wrap: wrap;
-    gap: 12px;
+.card-grid .app-card .card-content {
+    padding: 1rem;
 }
 
-/* Área reservada para aplicativos ainda sem print. */
+.card-grid .app-card .card-footer {
+    display: flex;
+    padding-top: 14px;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Área dos aplicativos que ainda não têm print. */
 .app-screenshot-placeholder {
     box-sizing: border-box;
     width: 100%;
@@ -730,6 +749,11 @@ header {
     background: linear-gradient(160deg, #0f172a, #020617);
 }
 
+.app-screenshot-placeholder svg {
+    flex-shrink: 0;
+    color: #6ee7b7;
+}
+
 .app-screenshot-placeholder span {
     color: #e2e8f0;
     font-weight: 600;
@@ -741,7 +765,66 @@ header {
 }
 
 /* ==================================================
-   18. RESPONSIVIDADE
+   18. BOTÃO VER APLICATIVO
+   ================================================== */
+
+.app-details-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 46px;
+    box-sizing: border-box;
+    padding: 12px 14px;
+
+    color: #6ee7b7;
+    background: rgba(16, 185, 129, 0.09);
+    border: 1px solid rgba(52, 211, 153, 0.22);
+    border-radius: 12px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.app-details-btn svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.app-details-btn .app-details-arrow {
+    width: 17px;
+    height: 17px;
+    margin-left: auto;
+    transition: transform 0.2s ease;
+}
+
+.app-details-btn:hover {
+    color: #a7f3d0;
+    background: rgba(16, 185, 129, 0.18);
+    border-color: rgba(52, 211, 153, 0.5);
+}
+
+.app-details-btn:hover .app-details-arrow {
+    transform: translateX(3px);
+}
+
+.app-details-btn:focus-visible {
+    outline: 2px solid #6ee7b7;
+    outline-offset: 4px;
+}
+
+/* ==================================================
+   19. RESPONSIVIDADE GERAL
    ================================================== */
 
 @media (max-width: 640px) {
@@ -754,8 +837,12 @@ header {
     }
 }
 
-/* Carrossel de aplicativos apenas no celular. */
+/* ==================================================
+   20. APLICATIVOS NO MOBILE
+   ================================================== */
+
 @media (max-width: 767px) {
+    /* Carrossel horizontal por deslize. */
     #gallery-container-apps-featured {
         display: flex;
         justify-content: flex-start;
@@ -772,46 +859,18 @@ header {
         display: none;
     }
 
-    /* Deixa parte do próximo card visível. */
+    /* A largura menor reduz a altura do print. */
     #gallery-container-apps-featured > .app-card {
-        flex: 0 0 88%;
-        width: 88%;
+        flex: 0 0 65%;
+        width: 65%;
+        max-width: 210px;
         min-width: 0;
-        max-width: 340px;
+        min-height: 0;
         scroll-snap-align: start;
     }
 
     #gallery-container-apps-featured > .app-card:hover {
         transform: none;
-    }
-}
-/* Cards menores no computador */
-.apps-grid {
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(min(100%, 220px), 270px)
-    );
-}
-
-/* Reduz o espaço da descrição */
-.card-grid .app-card .card-content {
-    padding: 1rem;
-}
-
-/* Mantém o carrossel com cards menores no celular */
-@media (max-width: 767px) {
-    #gallery-container-apps-featured > .app-card {
-        flex: 0 0 76%;
-        width: 76%;
-        max-width: 260px;
-    }
-}
-@media (max-width: 767px) {
-    #gallery-container-apps-featured > .app-card {
-        flex: 0 0 65%;
-        width: 65%;
-        max-width: 210px;
-        min-height: 0;
     }
 
     #gallery-container-apps-featured .card-content {
@@ -831,16 +890,139 @@ header {
     }
 
     #gallery-container-apps-featured .card-footer {
-        padding-top: 10px;
+        padding-top: 12px;
+    }
+
+    #gallery-container-apps-featured .app-details-btn {
         gap: 8px;
+        min-height: 44px;
+        padding: 10px;
+        font-size: 0.78rem;
     }
 
-    #gallery-container-apps-featured .card-btn {
+    #gallery-container-apps-featured .app-screenshot-placeholder {
+        padding: 16px;
+    }
+
+    #gallery-container-apps-featured .app-screenshot-placeholder span {
+        font-size: 0.9rem;
+    }
+
+    #gallery-container-apps-featured .app-screenshot-placeholder small {
+        font-size: 0.75rem;
+    }
+}
+/* Link minimalista — desktop e mobile */
+.card-grid .app-card .app-details-btn {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    min-height: 44px;
+    padding: 0;
+    gap: 8px;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    color: #60a5fa;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.card-grid .app-card .app-details-btn:hover {
+    background: transparent;
+    color: #93c5fd;
+}
+
+.card-grid .app-card .app-details-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.card-grid .app-card .app-details-arrow {
+    width: 16px;
+    height: 16px;
+    margin-left: 2px;
+}
+
+.card-grid .app-card .app-details-btn:hover .app-details-arrow {
+    transform: translateX(3px);
+}
+
+@media (max-width: 767px) {
+    #gallery-container-apps-featured .app-details-btn {
+        padding: 0;
         font-size: 0.8rem;
+        gap: 7px;
+    }
+}
+/* Filtros da Galeria Completa */
+.portfolio-type-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.portfolio-type-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 22px;
+
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    color: #94a3b8;
+
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.portfolio-type-btn:hover {
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.portfolio-type-btn.active {
+    color: #93c5fd;
+    background: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.25);
+}
+
+.portfolio-type-btn:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 4px;
+}
+
+.portfolio-empty-message {
+    padding: 24px 0;
+    text-align: center;
+    color: #94a3b8;
+}
+
+@media (max-width: 767px) {
+    .portfolio-type-filters {
+        gap: 4px;
     }
 
-    #gallery-container-apps-featured .category-badge {
-        font-size: 0.6rem;
-        padding: 4px 6px;
+    .portfolio-type-btn {
+        padding: 10px 16px;
+        font-size: 0.82rem;
     }
 }
