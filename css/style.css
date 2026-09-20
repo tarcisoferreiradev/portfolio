@@ -806,3 +806,41 @@ header {
         max-width: 260px;
     }
 }
+@media (max-width: 767px) {
+    #gallery-container-apps-featured > .app-card {
+        flex: 0 0 65%;
+        width: 65%;
+        max-width: 210px;
+        min-height: 0;
+    }
+
+    #gallery-container-apps-featured .card-content {
+        padding: 12px;
+    }
+
+    #gallery-container-apps-featured h2 {
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+    }
+
+    #gallery-container-apps-featured p {
+        font-size: 0.8rem;
+        line-height: 1.4;
+        margin-bottom: 12px;
+        -webkit-line-clamp: 2;
+    }
+
+    #gallery-container-apps-featured .card-footer {
+        padding-top: 10px;
+        gap: 8px;
+    }
+
+    #gallery-container-apps-featured .card-btn {
+        font-size: 0.8rem;
+    }
+
+    #gallery-container-apps-featured .category-badge {
+        font-size: 0.6rem;
+        padding: 4px 6px;
+    }
+}
