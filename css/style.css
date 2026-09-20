@@ -785,3 +785,24 @@ header {
         transform: none;
     }
 }
+/* Cards menores no computador */
+.apps-grid {
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 220px), 270px)
+    );
+}
+
+/* Reduz o espaço da descrição */
+.card-grid .app-card .card-content {
+    padding: 1rem;
+}
+
+/* Mantém o carrossel com cards menores no celular */
+@media (max-width: 767px) {
+    #gallery-container-apps-featured > .app-card {
+        flex: 0 0 76%;
+        width: 76%;
+        max-width: 260px;
+    }
+}
